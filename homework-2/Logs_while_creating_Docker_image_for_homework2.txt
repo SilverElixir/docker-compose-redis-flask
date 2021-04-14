@@ -1,0 +1,36 @@
+root@ip-172-31-16-178:/Documents/HW6_Docker_Compose/homework2# docker build -t hw2-flask .
+Sending build context to Docker daemon   7.68kB
+Step 1/10 : FROM alpine:latest
+ ---> 49f356fa4513
+Step 2/10 : RUN apk update    && apk add python3 py3-pip
+ ---> Using cache
+ ---> c66016648b9c
+Step 3/10 : RUN pip install flask
+ ---> Using cache
+ ---> ae19e2a8daf8
+Step 4/10 : ENTRYPOINT ["python3"]
+ ---> Using cache
+ ---> 385d38ad4ce7
+Step 5/10 : CMD ["app.py"]
+ ---> Using cache
+ ---> 4c53087f418b
+Step 6/10 : WORKDIR /app
+ ---> Running in 8b1b3e8cdada
+Removing intermediate container 8b1b3e8cdada
+ ---> 469875519160
+Step 7/10 : COPY app.py app.py
+ ---> fd64b6696754
+Step 8/10 : COPY index.html templates/index.html
+ ---> cc19de727065
+Step 9/10 : EXPOSE 5000
+ ---> Running in c14f6e371cb9
+Removing intermediate container c14f6e371cb9
+ ---> c954b622d5a2
+Step 10/10 : CMD ["python","app.py"]
+ ---> Running in 06fdb9ee7ba8
+Removing intermediate container 06fdb9ee7ba8
+ ---> c7f6c254b4de
+Successfully built c7f6c254b4de
+Successfully tagged hw2-flask:latest
+root@ip-172-31-16-178:/Documents/HW6_Docker_Compose/homework2#
+
