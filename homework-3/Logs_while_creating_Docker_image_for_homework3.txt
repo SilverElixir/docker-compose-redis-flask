@@ -1,0 +1,41 @@
+
+ubuntu@ip-172-31-16-178:/Documents/HW6_Docker_Compose/homework-3$ docker build -t hw3-flask-redis .
+Sending build context to Docker daemon  8.192kB
+Step 1/11 : FROM redislabs/redis-py:latest
+ ---> ef240a029721
+Step 2/11 : COPY ./requirements.txt /requirements.txt
+ ---> Using cache
+ ---> 2ef4780737d9
+Step 3/11 : RUN pip install -r requirements.txt
+ ---> Using cache
+ ---> 34903cb7694b
+Step 4/11 : ENTRYPOINT ["python3"]
+ ---> Using cache
+ ---> 6c9690ba498c
+Step 5/11 : WORKDIR /app
+ ---> Using cache
+ ---> 620fc7b04a26
+Step 6/11 : WORKDIR /app/logs
+ ---> Using cache
+ ---> 1d67aae34f90
+Step 7/11 : COPY hist/app.py app.py
+ ---> Using cache
+ ---> 826aaa6f9c77
+Step 8/11 : EXPOSE 5000
+ ---> Running in 39a90b790bca
+Removing intermediate container 39a90b790bca
+ ---> 087d5d03cb57
+Step 9/11 : CMD ["app.py"]
+ ---> Running in 2fee68aed33d
+Removing intermediate container 2fee68aed33d
+ ---> f79e6f44daf6
+Step 10/11 : CMD ["sh", "redis-server", "/etc/redis/redis.conf"]
+ ---> Running in 5a49210dcf64
+Removing intermediate container 5a49210dcf64
+ ---> 63ee6fb398e7
+Step 11/11 : EXPOSE 6379
+ ---> Running in 8b381a878c8e
+Removing intermediate container 8b381a878c8e
+ ---> 501754df8ea0
+Successfully built 501754df8ea0
+Successfully tagged hw3-flask-redis:latest
